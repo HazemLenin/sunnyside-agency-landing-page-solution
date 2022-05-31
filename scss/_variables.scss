@@ -1,0 +1,44 @@
+// Primary colors
+$soft-red: #fe7867;
+$yellow: #fad400;
+$dark-desaturated-cyan: #25564b; // graphic design text
+$dark-blue: #19536b; // photography text
+$dark-moderate-cyan: #458c7e; // footer
+
+// Neutral colors
+$very-dark-desaturated-blue: #23303e;
+$very-dark-grayish-blue: #5a636c;
+$dark-grayish-blue: #818498;
+$grayish-blue: #a7abae;
+$white: #ffffff;
+
+// Fonts
+$headings-font: 'Fraunces', serif;
+$body-font: 'Barlow', sans-serif;
+
+// Breakpoints
+$breakpoints: (
+    small: 499px,
+    medium: 699px,
+    large: 999px,
+    xlarge: 1399px
+);
+
+@mixin breakpoint($size) {
+    $breakpoint-value: map-get($breakpoints, $size);
+    
+    @media screen and (min-width: $breakpoint-value){
+        @content;
+    }
+}
+
+@mixin generate_image($mobile-src, $desktop-src) {
+    background-image: url($mobile-src);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    @include breakpoint(medium) {
+        background-image: url($desktop-src);
+    }
+}

@@ -1,0 +1,24 @@
+.header {
+    background-image: url('../images/mobile/image-header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .sidebar-btn {
+        width: 25px;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    @include breakpoint(medium) {
+        background-image: url('../images/desktop/image-header.jpg');
+
+        .sidebar-btn {
+            display: none;
+        }
+    }
+
+}

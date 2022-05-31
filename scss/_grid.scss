@@ -1,0 +1,97 @@
+.grid-container {
+    display: grid;
+    grid-template:
+        "transform-img" 1fr
+        "transform-text" 1fr
+        "stand-out-img" 1fr
+        "stand-out-text" 1fr
+        "graphic-design" 2fr
+        "photography" 2fr;
+
+    @include breakpoint(medium) {
+        grid-template:
+        "transform-text transform-img" 1fr
+        "stand-out-img stand-out-text" 1fr
+        "graphic-design photography" 1fr;
+    }
+
+    .cell-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 40px;
+
+        padding: 70px 30px 66px 30px;
+        text-align: center;
+
+        h2 {
+            font-size: 2em;
+            color: $very-dark-desaturated-blue;
+        }
+
+        p {
+            color: $dark-grayish-blue;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        @include breakpoint(medium) {
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 60px;
+            text-align: left;
+            padding: 170px;
+        }
+    }
+
+    .transform__img {
+        @include generate_image('../images/mobile/image-transform.jpg', '../images/desktop/image-transform.jpg');
+        grid-area: transform-img;
+    }
+
+    .transform__text {
+        grid-area: transform-text;
+    }
+    
+    .stand-out__img {
+        @include generate_image('../images/mobile/image-stand-out.jpg', '../images/desktop/image-stand-out.jpg');
+        grid-area: stand-out-img;
+    }
+    
+    .stand-out__text {
+        grid-area: stand-out-text;
+        .btn-link::after {
+            background-color: $soft-red;
+        }
+    }
+
+    .graphic-design, .photography {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        row-gap: 35px;
+        font-size: 20px;
+        text-align: center;
+        padding: 0 25px 60px 25px;
+        
+        @include breakpoint(medium) {
+            padding: 0 200px 60px 200px;
+            font-size: 18px;
+        }
+    }
+
+    .graphic-design {
+        grid-area: graphic-design;
+        @include generate_image('../images/mobile/image-graphic-design.jpg', '../images/desktop/image-graphic-design.jpg');
+        color: $dark-desaturated-cyan;
+    }
+
+    .photography {
+        grid-area: photography;
+        @include generate_image('../images/mobile/image-photography.jpg', '../images/desktop/image-photography.jpg');
+        color: $dark-blue;
+    }
+
+}

@@ -1,0 +1,36 @@
+.gallery {
+    display: grid;
+    grid-template-areas:
+        "milkbottles orange-fruit"
+        "cone sugarcubes";
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vw;
+    
+    @include breakpoint(medium) {
+        grid-template-areas: "milkbottles orange-fruit cone sugarcubes";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        height: calc(((100vw / 4) / 3) * 4); // 3 : 4 aspect ratio
+    }
+
+    .gallery-milkbottles {
+        grid-area: milkbottles;
+        @include generate_image('../images/mobile/image-gallery-milkbottles.jpg', '../images/desktop/image-gallery-milkbottles.jpg');
+    }
+
+    .gallery-orange {
+        grid-area: orange-fruit;
+        @include generate_image('../images/mobile/image-gallery-orange.jpg', '../images/desktop/image-gallery-orange.jpg');
+    }
+
+    .gallery-cone {
+        grid-area: cone;
+        @include generate_image('../images/mobile/image-gallery-cone.jpg', '../images/desktop/image-gallery-cone.jpg');
+    }
+
+    .gallery-sugarcubes {
+        grid-area: sugarcubes;
+        @include generate_image('../images/mobile/image-gallery-sugarcubes.jpg', '../images/desktop/image-gallery-sugarcubes.jpg');
+    }
+}

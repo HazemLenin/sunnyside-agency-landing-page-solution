@@ -1,0 +1,48 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $body-font;
+    font-size: calc(1rem + .5vw);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headings-font;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-link {
+    position: relative;
+    font-family: $headings-font;
+    color: $very-dark-desaturated-blue;
+    width: 140px;
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    
+    @include breakpoint(medium) {
+        width: 178px;
+    } 
+}
+
+.btn-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    display: block;
+    background-color: $yellow;
+    width: 100%;
+    height: 8px;
+    opacity: .5;
+    z-index: -1;
+}
